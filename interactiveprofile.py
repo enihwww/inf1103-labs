@@ -7,3 +7,10 @@ print("====================================")
 print("Username:", username)
 print("Age:", age)
 print("Category:", category)
+
+if age>40 and category == "fun":
+    print("You are old what is fun for you??")
+
+if age<=10 and category == "fun":
+    print("You are too young to be on Instagram")
+
