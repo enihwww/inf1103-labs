@@ -70,6 +70,12 @@ def load_inventory():
     except FileNotFoundError:
         print("\nInventory.json not found. Starting with empty inventory.")
 
+def save_inventory():
+    print("\nSaving Inventory...")
+    with open("inventory.json", "w") as file:
+        json.dump(inventory, file)
+    print("Inventory saved successfully to inventory.json.")
+
 print("============================================")
 print("INVENTORY MANAGEMENT SYSTEM")
 print("============================================")
@@ -99,6 +105,16 @@ while True:
 
     elif choice == "4":
         search_product()
+
+    elif choice == "5":
+        save_inventory()
+
+    elif choice == "6":
+        print("\nSaving inventory before exit...")
+        save_inventory()
+        print("\nThank you for using Inventory Management System.")
+        print("Program terminated.")
+        break
 
     else:
         print("\nInvalid option.")
