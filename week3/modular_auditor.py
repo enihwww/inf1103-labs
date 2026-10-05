@@ -32,7 +32,7 @@ def main():
             break
         if quantity is None:
             failed_entries += 1
-            continue
+            continue    
 
         #valid input, process the delivery
         total_inventory = process_delivery(total_inventory, quantity)

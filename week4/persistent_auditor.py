@@ -1,6 +1,6 @@
 def load_inventory():
     try:
-        with open("inventory.txt", "r") as file:
+        with open("data/inventory.txt", "r") as file:
             lines = file.readlines()
             total_inventory = int(lines[0].strip())
             transaction_history = []
@@ -13,7 +13,7 @@ def load_inventory():
         return 0, []
 
 def save_inventory(total_inventory, transaction_history):
-    with open("inventory.txt", "w") as file:
+    with open("data/inventory.txt", "w") as file:
         file.write(str(total_inventory) + "\n")
         for transaction in transaction_history:
             file.write(str(transaction) + "\n")
