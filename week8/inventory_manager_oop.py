@@ -17,3 +17,27 @@ class Product:
         print(f"Price: ${self.__price:.2f}")
         print(f"Stock: {self.__stock}")
 
+    #to use in Inventory class to search for a product by its ID
+    def get_product_id(self):
+        return self.__product_id
+
+class Inventory:
+    def __init__(self):
+        self.__products = []
+
+    def add_product(self, product):
+        self.__products.append(product)
+
+    def search_product(self, product_id):
+        for product in self.__products:         #check all the products in the list
+            if product.get_product_id() == product_id:  
+                return product
+        return None
+    
+    def display_all(self):
+        print("\nCurrent Inventory")
+        print("------------------------------------")
+        for product in self.__products:
+            product.display_information()
+        print("------------------------------------")
+
