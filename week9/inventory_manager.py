@@ -30,3 +30,15 @@ class PhysicalProduct(Product):
 
 product = PhysicalProduct("P001", "Laptop", 999.99, 10, 2.5)
 product.display_information()
+
+class DigitalProduct(Product):
+    def __init__(self, product_id, name, price, stock, download_size):
+        super().__init__(product_id, name, price, stock)
+        self._download_size = download_size
+
+    def display_information(self):
+        super().display_information()
+        print(f"Download Size: {self._download_size} MB")
+
+digital_product = DigitalProduct("D001", "E-book", 19.99, 50, 2.0)
+digital_product.display_information()
