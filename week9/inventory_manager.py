@@ -1,11 +1,16 @@
 import json
+from abc import ABC, abstractmethod
 
-class Product:
+class Product(ABC):
     def __init__(self, product_id, name, price, stock):
         self._product_id = product_id
         self._name = name
         self._price = price
         self._stock = stock
+
+    @abstractmethod
+    def get_fulfilment_info(self):
+        pass
 
     def update_stock(self, quantity):
         if self._stock + quantity < 0:
@@ -28,8 +33,8 @@ class PhysicalProduct(Product):
         super().display_information()
         print(f"Weight: {self._weight} kg")
 
-product = PhysicalProduct("P001", "Laptop", 999.99, 10, 2.5)
-product.display_information()
+    def get_fulfilment_info(self):
+        print("This product requires physical shipping.")
 
 class DigitalProduct(Product):
     def __init__(self, product_id, name, price, stock, download_size):
@@ -40,5 +45,13 @@ class DigitalProduct(Product):
         super().display_information()
         print(f"Download Size: {self._download_size} MB")
 
-digital_product = DigitalProduct("D001", "E-book", 19.99, 50, 2.0)
-digital_product.display_information()
+    def get_fulfilment_info(self):
+        print("This product is delivered digitally via download link.")
+
+physical = PhysicalProduct("P001", "Laptop", 999.99, 10, 2.5)
+digital = DigitalProduct("D001", "Antivirus Software", 49.99, 100, 350)
+
+physical.display_information()
+physical.get_fulfilment_info()
+digital.display_information()
+digital.get_fulfilment_info()
