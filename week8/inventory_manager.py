@@ -32,6 +32,7 @@ class Product:
     def get_stock(self):
         return self.__stock
 
+
 class Inventory:
     def __init__(self):
         self.__products = []

@@ -186,12 +186,11 @@ def update_stock(inventory):
         return
  
     print("\nProduct Found:")
-    print(f"Name: {product.name()}")
-    print(f"Current Stock: {product.stock()}")
+    print(f"Name: {product.name}")
+    print(f"Current Stock: {product.stock}")
     quantity = int(input("\nQuantity to add (use negative to remove): "))
     product.update_stock(quantity)
-    print(f"Stock is now: {product.stock()}")
- 
+    print(f"Stock is now: {product.stock}")
 def search_product(inventory):
     print("\nSearch Product")
     product_id = input("Enter Product ID: ")
